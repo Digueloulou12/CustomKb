@@ -1,0 +1,9 @@
+---
+msg: "The default kb is now {kb}!"
+msg_: "The kb of the world {world} is now {kb}!"
+
+no_kb: "You must indicate a kb!"
+
+worlds: []
+kb: 0.5
+...
