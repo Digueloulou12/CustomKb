@@ -4,6 +4,12 @@ msg_: "The kb of the world {world} is now {kb}!"
 
 no_kb: "You must indicate a kb!"
 
-worlds: []
+# worlds:
+#   name_world: [ KNOCKBACK, ATTACK_COOLDOWN ]
+worlds:
+  custom_world: [2, 0.1]
+
+# Knockback in the rest of the worlds
 kb: 0.5
+attack_cooldown: 0.5
 ...
