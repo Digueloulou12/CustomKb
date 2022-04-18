@@ -41,10 +41,13 @@ class CustomKb extends PluginBase implements Listener
     public function onDamage(EntityDamageByEntityEvent $event)
     {
         $config = $this->getConfig();
-        $array = $config->get("worlds");
         $world = $event->getEntity()->getWorld()->getFolderName();
-        if (isset($world, $array)) {
-            $event->setKnockBack($config->get("worlds")[$world]);
-        } else $event->setKnockBack($config->get("kb"));
+        if (isset($config->get("worlds")[$world])) {
+            $event->setKnockBack($config->get("worlds")[$world][0]);
+            $event->setAttackCooldown($config->get("worlds")[$world][1] ?? $event->getAttackCooldown());
+        } else {
+            $event->setKnockBack($config->get("kb"));
+            $event->setAttackCooldown($config->get("attack_cooldown"));
+        }
     }
 }
